@@ -27,3 +27,35 @@ const papaJohns = {
 // DO NOT EDIT THE ABOVE OBJECT // 
 
 // YOUR WORK GOES HERE // 
+
+function grabCategories(obj) {
+  return console.log(Object.keys(obj));
+};
+
+grabCategories(papaJohns);
+grabCategories(papaJohns.pizzaToppings);
+
+function verifyValues(obj, num) {
+  return console.log(Object.values(obj).length === num);
+};
+
+verifyValues(papaJohns, 9);
+verifyValues(papaJohns, 3);
+
+function getToppingsInfo() {
+  return console.log(Object.entries(papaJohns.pizzaToppings));
+};
+
+getToppingsInfo();
+
+papaJohns.printAd = function(topping) {
+  console.log(`"Welcome to Papa John's! We are located at ${papaJohns.address}. This week, we are having a sale on ${topping} for $ ${papaJohns.pizzaToppings[topping]}. ${papaJohns.slogan}"`);
+};
+
+papaJohns.printAd("bacon");
+
+papaJohns.slogan = "Get yours now!";
+papaJohns.address = "123 center st";
+
+papaJohns.printAd("bacon");
+
