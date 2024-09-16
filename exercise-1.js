@@ -19,6 +19,8 @@ bond45.numberOfStars += 1;
 bond45.favorited = !bond45.favorited;
 bond45.cuisine.push("pastas");
 
+console.log(bond45);
+
 function retrieveProperty(key, obj) {
    if (obj[key]) {
       return object[key];
@@ -26,4 +28,3 @@ function retrieveProperty(key, obj) {
       return "The information you requested does not exist."
    }
 };
-
