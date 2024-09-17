@@ -1,6 +1,8 @@
 // Module 3 Exercise: Looping in Objects
 // Start with exercise-3.md if you haven't read it!
 
+const { kMaxLength } = require("buffer");
+
 const dominos = {
   name: "Domino's",
   cuisines: ["italian", "new york", "pizza"],
@@ -26,3 +28,39 @@ const dominos = {
   zipcode: 54321,
   acceptsReservations: true,
 };
+
+function printPizzaPlace() {
+  for ( const key in dominos) {
+    console.log(key, dominos[key])
+  }
+};
+
+ //printPizzaPlace(dominos);
+
+function toppingsPriceRange(pizzaPlace) {
+  const {pizzaToppings} = pizzaPlace;
+  let highest = -Infinity;
+  let lowest = Infinity;
+  for (let key in pizzaToppings) {
+    if (pizzaToppings[key] > highest) {
+      highest = pizzaToppings[key];
+    } else if (pizzaToppings[key] < lowest) {
+      lowest = pizzaToppings[key];
+    }
+  }
+  return [highest, lowest];
+};
+
+// console.log(toppingsPriceRange(dominos));
+
+function calculateAverageRating(pizzaPlace) {
+  const {starReviews} = pizzaPlace;
+  let sum = 0;
+  let count = Object.keys(starReviews).length;
+  for (let key in starReviews) {
+    sum += starReviews[key];
+  }
+  return (sum / count).toFixed(2);
+};
+
+console.log(calculateAverageRating(dominos));
